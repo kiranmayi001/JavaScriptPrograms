@@ -1,12 +1,13 @@
-et readline = require('readline-sync');
-let callFunction = require('./anagramBL');
+let readline = require('readline-sync');
+let callFunction = require('./mergeBL');
 try {
-    llet a=[];
+    let a=[];
     let n = readline.question('enter size of an array ');
-    for(var i=0;i<n;i++){
+    for(let i=0;i<n;i++){
     a[i]=readline.question('element is ');
-   
-    callFunction.host(a); //calling checkAnagram()
+    }
+    merge=callFunction.mergeSort(a); //calling merge to sort an unsorted array()
+    console.log(merge);
 }
 catch (err) {
     console.log(err);
