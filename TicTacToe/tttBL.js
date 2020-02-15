@@ -8,7 +8,7 @@ this.board = [[]];
 
 hostplay(){
     this.initboard();
-    while(this.isEmpty){
+    while(this.isEmpty=="true"){
     console.log("Player turn");
         this.putVal();
         this.displayboard();
@@ -17,7 +17,7 @@ hostplay(){
             break;
         }
         this.player=1;
-        console.log("Player turn");
+        console.log("Computer turn");
         this.putVal();
         this.displayboard();
         if(this.win()){
@@ -36,6 +36,7 @@ initboard(){
 // Loop to create 2D array using 1D array 
 for (let i = 0; i < 3; i++) { 
 this.board[i] =[[]]; 
+
 }
   
 // Loop to initilize 2D array elements. 
@@ -57,7 +58,8 @@ displayboard(){
 
         console.log("---------------");
         console.log("||");
-        for(let j=0;j<this.board.length;j++){
+        for(let j=0;j<this.board.length;j++) 
+        {
             if(this.board[i][j]==0 )
             {
                 count++;
@@ -96,9 +98,12 @@ putVal(){
     }
     //checking if the board index is empty for the player or the computer to place the value
     if(this.board[i][j]==-10){
-        if (this.player % 2 == 0) {
+        if (this.player % 2 == 0) 
+        {
             this.board[i][j] = 0;
-        } else if(this.player%2==1){
+        } 
+        else if(this.player%2==1)
+        {
         this.board[i][j]=1;
             console.log("Computer Chooses " + i + " " + j);
         }
