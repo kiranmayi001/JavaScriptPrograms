@@ -4,10 +4,10 @@
 class stack { //stack class
     constructor() {
         this.a = [];
-        this.top = -1;
+        this.top = -1; //tells that the stack is empty
 
     }
-    isEmpty() {
+    isEmpty() { 
         if (this.top == -1) {
             return true;
         }
@@ -25,7 +25,7 @@ class stack { //stack class
     }
     push(element) {
         this.top++;
-        return this.a.push(element);
+        return this.a.push(element); 
     }
     pop() {
 
@@ -49,9 +49,14 @@ class stack { //stack class
     }
 
 }
+
+ /**
+     * @param {arthemetic expression} num - commandline argument 
+     * @return {if balanced brackets} true - balanced brackets
+     */
 module.exports = {
     isBalanced: (expression) => {
-        const s = new stack();
+        const s = new stack(); //creating stack object to retrieve stack class  
 
         for (let i = 0; i < expression.length; i++) {
             if (expression[i] === '(') {
