@@ -1,13 +1,9 @@
-/**
- * objectOrientedPrograms/addressBook.
- * @module objectOrientedPrograms/addressBook
- */
-const fs = require('fs');
-const readLine = require('readline-sync');
-/**
- * @class person
-*/
-class person {
+const readLine=require('readline-sync');
+const fs=require('fs');
+
+
+
+class person{
     constructor(id,fname,lname,address,city,state,zip,pnumber){
         this.id = id;
         this.fname = fname;
@@ -17,21 +13,27 @@ class person {
         this.state = state;
         this.zip = zip;
         this.pnumber = pnumber;
+    
     }
+    
 }
 /**
  * @class AddressBook
 */
-class AddressBook{
-    constructor(){
+class AddressBook extends person{
+    constructor(id,fname,lname,address,city,state,zip,pnumber){
+        super(id,fname,lname,address,city,state,zip,pnumber);
+
         let bookdata = fs.readFileSync('addressbook.json');
         let jsonBookData = JSON.parse(bookdata);
         this.person = [];
         if(Array.isArray(jsonBookData.person)){
             this.entries = { person: jsonBookData.person  };
         }else{
-            this.entries = { person: this.person  };
+            this.entries = { person: this.person  };l
+            
         }
+        
     }
     /**
      * @module-it will insert the data in the json file by given ID. 
@@ -45,7 +47,7 @@ class AddressBook{
         const state = readLine.question(' Enter State : ');
         const zip = readLine.questionInt(' Enter Pincode : ');
         const pnumber = readLine.questionInt(' Enter Phone Number : ');
-        let p = new person(id,fname,lname,address,city,state,zip,pnumber);
+        let p = new AddressBook(id,fname,lname,address,city,state,zip,pnumber);
         this.entries.person.push(JSON.parse(JSON.stringify(p))); // For remove object name during push data into array 
                                                                  // other wise it will consider object name as a key of that array.
         fs.writeFileSync('addressbook.json',JSON.stringify(this.entries));
@@ -132,5 +134,5 @@ class AddressBook{
     }
 }
 module.exports = {
-    person,AddressBook
+    AddressBook
 }
