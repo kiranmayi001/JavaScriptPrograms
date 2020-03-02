@@ -119,6 +119,15 @@ class ManageInventory{
         console.log(`Total price of Pluses = ${plusesTotal}`);
         console.log(`Total price of Wheats = ${wheatsTotal}`);
     }
+    printUpdate(){
+        console.log("------------------RICE----------------------");
+        console.log();
+        console.log("------------------RICE----------------------");
+        console.log("------------------RICE----------------------");
+        console.log("------------------RICE----------------------");
+        console.log("------------------RICE----------------------");
+        console.log("------------------RICE----------------------");
+    }
 }
 module.exports = {
     Rice,Pulses,Wheats,ManageInventory
