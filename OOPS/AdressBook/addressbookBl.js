@@ -22,8 +22,9 @@ class person {
 /**
  * @class AddressBook
 */
-class AddressBook{
-    constructor(){
+class AddressBook extends person{
+    constructor(id,fname,lname,address,city,state,zip,pnumber){
+        super(id,fname,lname,address,city,state,zip,pnumber);
         let bookdata = fs.readFileSync('addressbook.json');
         let jsonBookData = JSON.parse(bookdata);
         this.person = [];
@@ -45,7 +46,7 @@ class AddressBook{
         const state = readLine.question(' Enter State : ');
         const zip = readLine.questionInt(' Enter Pincode : ');
         const pnumber = readLine.questionInt(' Enter Phone Number : ');
-        let p = new person(id,fname,lname,address,city,state,zip,pnumber);
+        let p = new AddressBook(id,fname,lname,address,city,state,zip,pnumber);
         this.entries.person.push(JSON.parse(JSON.stringify(p))); // For remove object name during push data into array 
                                                                  // other wise it will consider object name as a key of that array.
         fs.writeFileSync('addressbook.json',JSON.stringify(this.entries));
