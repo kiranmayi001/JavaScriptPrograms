@@ -1,6 +1,8 @@
 const readLine = require("readline-sync");
 const fs = require("fs");
-
+/**
+ * @function constructor person
+*/
 
 var person = function () { //instances without creating constructor
     this.name = name;
@@ -15,10 +17,15 @@ var person = function () { //instances without creating constructor
         throw new Error("Can't instantiate abstract class!");
     }
 };
+/**
+ * @function abstract person
+*/
 person.prototype.abstract = true;
+/**
+ * @function constructor AddresBook
+*/
 
-
-    var AddressBook = function() {
+var AddressBook = function () {
     let bookdata = fs.readFileSync('aboop.json');
     let jsonBookData = JSON.parse(bookdata);
     this.person = [];
@@ -28,7 +35,9 @@ person.prototype.abstract = true;
         this.entries = { person: this.person };
     }
 };
-
+/**
+ * @function prototype AddressBook to addEntry function
+*/
 
 
 AddressBook.prototype.addEntry = function () {
@@ -78,62 +87,67 @@ AddressBook.prototype.addEntry = function () {
     // other wise it will consider object name as a key of that array.
     fs.writeFileSync('aboop.json', JSON.stringify(this.entries));
 };
+/**
+ * @function prototype AddressBook to deleteEntry function
+*/
+AddressBook.prototype.deleteEntry = function () {
 
-AddressBook.prototype.deleteEntry=function(){
- 
     let deletID = readLine.questionInt('Enter The ID for delete : ');
     let isAvailable = true;
-    for(let i=0;i<this.entries.person.length;i++){
-        if(this.entries.person[i].id == deletID){
-            this.entries.person.splice(i,1);
-        }else{
+    for (let i = 0; i < this.entries.person.length; i++) {
+        if (this.entries.person[i].id == deletID) {
+            this.entries.person.splice(i, 1);
+        } else {
             isAvailable = false;
         }
     }
-    let deleteMessage = isAvailable?'Record Deleted Successfully.':'Record Not Founded.';
+    let deleteMessage = isAvailable ? 'Record Deleted Successfully.' : 'Record Not Founded.';
     console.log(deleteMessage);
-    fs.writeFileSync('aboop.json',JSON.stringify(this.entries));
+    fs.writeFileSync('aboop.json', JSON.stringify(this.entries));
 };
+/**
+ * @function prototype AddressBook to editEntry function
+*/
 
-AddressBook.prototype.editEntry=function (){
+AddressBook.prototype.editEntry = function () {
     person.call(this);
     let editID = readLine.questionInt('Enter The Id for EDIT : ');
     let isAvailable = false;
-    for(let i=0;i<this.entries.person.length;i++){
-        if(this.entries.person[i].id === editID){
+    for (let i = 0; i < this.entries.person.length; i++) {
+        if (this.entries.person[i].id === editID) {
             let editAddress = readLine.question('Enter Address For Edit : ');
             let editCity = readLine.question('Enter City For Edit : ');
             let editPincode = readLine.questionInt('Enter Pincode For Edit : ');
             let editPhone = readLine.questionInt('Enter Phone Number For Edit : ');
-          
+
             this.entries.person[i].address = editAddress;
-            this.entries.person[i].city =  editCity ;
+            this.entries.person[i].city = editCity;
             this.entries.person[i].zip = editPincode;
             this.entries.person[i].pnumber = editPhone;
             isAvailable = true;
         }
     }
-    let editMessage = isAvailable?'Record Edited Successfully.':'Record Not Founded for given id.';
+    let editMessage = isAvailable ? 'Record Edited Successfully.' : 'Record Not Founded for given id.';
     console.log(editMessage);
-    fs.writeFileSync('aboop.json',JSON.stringify(this.entries));
+    fs.writeFileSync('aboop.json', JSON.stringify(this.entries));
 };
 
 
-AddressBook.prototype.printBookData=function(){
+AddressBook.prototype.printBookData = function () {
     console.log(this.entries.person);
 };
 //USING ENCAPSULATION FOR A METHOD printBookData
-let AB=new AddressBook();
-var printBook=AB.printBookData();
+let AB = new AddressBook();
+var printBook = AB.printBookData();
 // getFullbook
-AddressBook.prototype.encap={
-getentry: function(){
-return entry;
-},
-setentry:function(entry){
-    this.entry=entry;
-}
+var o = {
+
+    get b() {
+        return this.entry;
+    },
+    set c(printBook) {
+        this.entry = printBook;
+    }
 };
-var e=new encap();
-e.setentry=printBook;
-e.getentry;
+o.c = printBook;
+o.b;
