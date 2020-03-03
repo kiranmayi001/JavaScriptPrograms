@@ -1,0 +1,69 @@
+{
+    "customer": [
+        {
+            "name": "Kiran",
+            "password": "576571",
+            "stock": [
+                {
+                    "name": "PM",
+                    "number": 29,
+                    "price": 1399999
+                }
+            ]
+        },
+        {
+            "name": "Karan",
+            "password": "Babu29",
+            "stock": [
+                {
+                    "name": "BMeh",
+                    "number": 49,
+                    "price": 3728738
+                }
+            ]
+        },
+        {
+            "name": "Anoop",
+            "password": "290994",
+            "stock": [
+                {
+                    "name": "Ambani",
+                    "number": 6,
+                    "price": 100000
+                },
+                {
+                    "name": "Birla",
+                    "number": 3,
+                    "price": 318983
+                }
+            ]
+        },
+        {
+            "name": "Anand",
+            "password": "Kumar",
+            "stock": [
+                {
+                    "name": "Puja",
+                    "number": 31,
+                    "price": 53789
+                }
+            ]
+        },
+        {
+            "name": "harsha",
+            "password": "vallu",
+            "stock": [
+                {
+                    "name": "NeuStar",
+                    "number": 11,
+                    "price": 599999
+                },
+                {
+                    "name": "MRF",
+                    "number": 21,
+                    "price": 49799
+                }
+            ]
+        }
+    ]
+}
