@@ -15,16 +15,16 @@
  ******************************************************************************/
 const callfunction = require("./observerBl");
 try {
-  let main = () => {
-    let observer = new callfunction.Click();
-    observer.subscribersAdd("Kiran");
-    observer.subscribersAdd("Gowri");
-    observer.subscribersAdd("Karan");
-    observer.subscriberDelete("Gowri");
-    observer.printNotified();
-    
-  };
-  main();
+    let main = () => {
+        let observer = new callfunction.Click();
+        observer.subscribersAdd("Kiran");
+        observer.subscribersAdd("Gowri");
+        observer.subscribersAdd("Karan");
+        observer.subscriberDelete("Gowri");
+        observer.printNotified();
+
+    };
+    main();
 } catch (err) {
-  throw err;
+    throw err;
 }
